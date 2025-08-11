@@ -18,7 +18,8 @@ void loop()
   sensorValue= analogRead(regPin);
   
   digitalWrite(ledPin, HIGH);
-  delay(sensorValue); // Wait for 1000 millisecond(s)now sensor value function given
+  delay(sensorValue); 
   digitalWrite(ledPin, LOW);
-  delay(sensorValue); // Wait for 1000 millisecond(s)
+  delay(sensorValue); 
+
 }
