@@ -1,0 +1,44 @@
+// C++ code
+//
+
+const int LM35Pin =A2;
+int val;
+int data;
+void setup()
+{
+  pinMode(LM35Pin, INPUT);
+  pinMode(11,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(7,OUTPUT);
+   
+  
+  Serial.begin(9600);
+}
+
+void loop()
+{ 
+   digitalWrite(11, LOW);
+   digitalWrite(10, LOW);
+   digitalWrite(7, LOW);
+  
+  val=analogRead(LM35Pin); 
+  data = (val*5)/10;
+  if(data>=10 && data<=60 )
+  {
+  digitalWrite(11, HIGH);
+  }
+  else if(data>=61 && data<=120)
+  {
+  digitalWrite(10, HIGH);
+    
+  }
+  else if(data>=121 && data<=180){
+     digitalWrite(7, HIGH);
+
+  }
+  Serial.print("Temp in Celcius: ");
+  Serial.print(data);
+  Serial.println("C");
+  delay(1000); 
+}
+  
